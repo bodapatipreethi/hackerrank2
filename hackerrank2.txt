@@ -1,0 +1,53 @@
+1.if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+    coordinates = [[i, j, k] for i in range(x+1) for j in range(y+1) for k in range(z+1)]
+filtered_coordinates = [coord for coord in coordinates if sum(coord) != n]
+print(filtered_coordinates)
+
+
+
+2.if __name__ == '__main__':
+    n = int(input())
+    scores = list(map(int, input().split()))  
+    sorted_scores = sorted(scores)
+    unique_scores = sorted(set(sorted_scores), reverse=True)
+    runner_up_score = unique_scores[1]
+    print(runner_up_score)
+
+
+
+3.if __name__ == '__main__':
+    students = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        students.append([name, score])
+        second_lowest_grade = sorted(set(score for name, score in students))[1]
+        second_lowest_students = sorted([name for name, score in students if score == second_lowest_grade])
+        for student in second_lowest_students:
+        	print(student)
+
+4.if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    average_score = sum(student_marks[query_name]) / len(student_marks[query_name])
+    print("{:.2f}".format(average_score))
+
+
+
+5.def split_and_join(line):
+    words = line.split(" ")
+    result = "-".join(words)
+    return result
+if __name__ == '__main__':
+    line = input()  # Read the input string
+    result = split_and_join(line)
+    print(result)
